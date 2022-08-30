@@ -1,15 +1,14 @@
 package cr.co.arevalo.visitorservice.common;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table( name = "visitor", schema = "arevalo" )
 public class Visitor
 {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -17,6 +16,10 @@ public class Visitor
     private String lastName;
 
     private String description;
+
+    public Visitor()
+    {
+    }
 
     public Visitor( String firstName, String lastName, String description )
     {
